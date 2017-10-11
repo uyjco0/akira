@@ -1,0 +1,41 @@
+
+CREATE DATABASE akiradb WITH ENCODING 'UTF8';
+-- The default user to access to the database
+CREATE USER akira ENCRYPTED PASSWORD 'akira' NOSUPERUSER NOCREATEDB NOCREATEROLE;
+GRANT ALL PRIVILEGES ON DATABASE akiradb TO akira;
+
+-- Log to the database
+\c akiradb;
+
+CREATE TABLE users (
+  user_id CHARACTER VARYING NOT NULL PRIMARY KEY,
+  first_name CHARACTER VARYING,
+  last_name CHARACTER VARYING,
+  full_name CHARACTER VARYING,
+  email CHARACTER VARYING,
+  avatar_url CHARACTER VARYING,
+  activated BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE login_info (
+  id SERIAL PRIMARY KEY,
+  provider_id CHARACTER VARYING NOT NULL,
+  provider_key CHARACTER VARYING NOT NULL
+);
+
+CREATE TABLE user_login_info (
+  user_id CHARACTER VARYING NOT NULL,
+  login_info_id INTEGER NOT NULL
+);
+
+CREATE TABLE password_info (
+  hasher CHARACTER VARYING NOT NULL,
+  password CHARACTER VARYING NOT NULL,
+  salt CHARACTER VARYING,
+  login_info_id INTEGER NOT NULL
+);
+
+-- Grant privileges to the user 'akira'
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO akira;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO akira;
+GRANT ALL PRIVILEGES ON ALL FUNCTIONS IN SCHEMA public TO akira;

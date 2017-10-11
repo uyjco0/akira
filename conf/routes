@@ -1,0 +1,18 @@
+# Routes
+# This file defines all application routes
+# ~~~~
+
+# Home page
+GET	/				controllers.pages.ApplicationController.index
+GET	/signOut			controllers.pages.ApplicationController.signOut
+
+GET	/signIn				controllers.auth.SignInController.view
+POST	/signIn				controllers.auth.SignInController.submit
+
+GET	/signUp				controllers.auth.SignUpController.view
+POST	/signUp 			controllers.auth.SignUpController.submit
+
+GET	/ws				controllers.pages.ApplicationController.wsSocket
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file			controllers.Assets.versioned(path="/public", file: Asset)
