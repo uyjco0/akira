@@ -56,8 +56,8 @@ $(document).ready(function() {
      //   ****************************************
      //   *** It is used only for demo purpose ***
      //   ****************************************
-     // Change the string '<XXX>' by your token
-     $.getJSON('https://ipinfo.io/8.8.8.8/geo?token=<XXX>', function(response) {
+     // Change the string 'XXX' by your token
+     $.getJSON('https://ipinfo.io/8.8.8.8/geo?token=XXX', function(response) {
          // ***********************************************************************
          // *** 'fack_dist' is used only for demo purpose, to simulate movement ***
          // ***********************************************************************

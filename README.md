@@ -76,11 +76,11 @@ To start the application:
          - Run 'conf/db/postgresql/create.sql'
              - Explained at: conf/db/postgresql/README.md
  - Aplication configuration:
-     - In 'conf/application.conf' change the string '<XXX>' by your server domain/IP
+     - In 'conf/application.conf' change the string 'XXX' by your server domain/IP
      - In 'conf/application.conf' change the string '*** CHANGE IT ***' by your key
      - In 'conf/silhouette.conf' change the strings '*** CHANGE IT ***' by your keys
  - Client Javascript:
      - The application is using [IpInfo service](https://ipinfo.io) to get your client current location:
-         - In 'app/assets/javascripts/client.js' change the string '<XXX>' by your token
+         - In 'app/assets/javascripts/client.js' change the string 'XXX' by your token
  - Run the application:
      - Run 'sbt', and once in the sbt console, run 'runProd' 
