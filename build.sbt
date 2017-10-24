@@ -27,11 +27,14 @@ libraryDependencies ++= Seq(
   "org.joda" % "joda-convert" % "1.9.2",
   "com.typesafe.play" %% "play-mailer" % "6.0.1",
   "com.adrianhurt" %% "play-bootstrap" % "1.2-P26-B3",
+   "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.0" % "test",
   ehcache,
   jdbc,
   guice,
   filters
 )
+
+logBuffered in Test := false
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 pipelineStages := Seq(digest)
